@@ -42,7 +42,7 @@ class Events extends React.Component {
 								<td>
 									<button
 										onClick={() =>
-											this.props.deleteEvent(event._id)
+											this.deleteEvent(event._id)
 										}
 										className='btn-danger mt-2 btn-sm '>
 										Delete

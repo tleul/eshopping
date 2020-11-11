@@ -28,7 +28,7 @@ import {  getEvents} from '../resources/fakeEventService'
 		
 				<div class='d-flex flex-row  bd-highlight mb-3'>
                       <Catagory filterEvent={this.filterEvent}  />
-                      <Events deleteEvent={this.deleteEvent} events={this.state.filterEvent ? this.state.filterevents : this.state.events} />
+                      <Events events={this.state.filterEvent ? this.state.filterevents : this.state.events} />
 					
 				</div>
 		
