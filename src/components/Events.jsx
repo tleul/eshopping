@@ -1,18 +1,16 @@
 import React from 'react';
-import { getEvents } from '../resources/fakeEventService';
+import { filterEvent, getEvents } from '../resources/fakeEventService';
+import { Link } from 'react-router-dom';
 
 class Events extends React.Component {
-	state = {
-		events: getEvents(),
-	};
-	deleteEvent = (id) => {
-		this.setState({
-			events: this.state.events.filter((event) => event._id !== id),
-		});
-	};
+
 	render() {
+
+
+	
 		return (
 			<>
+				
 				<table className='table'>
 					<thead>
 						<th>Title</th>
@@ -21,7 +19,7 @@ class Events extends React.Component {
 						<th>Price</th>
 					</thead>
 					<tbody>
-						{this.state.events.length == 0 && (
+						{this.props.events.length == 0 && (
 							<tr>
 								<td>
 									<h3 className='text-danger  text-center'>
@@ -30,9 +28,14 @@ class Events extends React.Component {
 								</td>
 							</tr>
 						)}
-						{this.state.events.map((event) => (
-							<tr key={event.id}>
-								<td>{event.title}</td>
+						{this.props.events.map((event) => (
+							<tr key={event._id}>
+								<td>
+									<Link
+										to={`/events/${event._id}/${event.title}`}>
+										{event.title}
+									</Link>
+								</td>
 								<td>{event.category.name}</td>
 								<td>{event.numberOfTicketsAvailable}</td>
 								<td>{event.Price}</td>
